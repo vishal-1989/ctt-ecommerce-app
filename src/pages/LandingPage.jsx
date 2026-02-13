@@ -127,6 +127,7 @@ function LandingPage() {
         </div>
         <div className="footer-bottom">
           <p>&copy; 2026 CTT App. All rights reserved. | E-Commerce Platform</p>
+          <p>&copy; Build version: {import.meta.env.VITE_DEPLOYMENT_ID}</p>
         </div>
       </footer>
     </div>
