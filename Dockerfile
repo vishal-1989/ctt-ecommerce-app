@@ -5,6 +5,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+
+ARG DEPLOYMENT_GUID
+ENV DEPLOYMENT_GUID=${DEPLOYMENT_GUID}
+
 RUN npm run build
 
 # ---- Runtime stage ----
