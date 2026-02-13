@@ -23,6 +23,7 @@ function LandingPage() {
             Explore our curated collection of fashion and lifestyle products. 
             From trendy jackets to comfortable jeans, stylish shoes to premium shirts - 
             discover everything you need in one place.
+            {import.meta.env.VITE_DEPLOYMENT_ID}
           </p>
           <div className="hero-buttons">
             <Link to="/login" className="hero-btn primary">
@@ -127,7 +128,6 @@ function LandingPage() {
         </div>
         <div className="footer-bottom">
           <p>&copy; 2026 CTT App. All rights reserved. | E-Commerce Platform</p>
-          <p>&copy; Build version: {import.meta.env.VITE_DEPLOYMENT_ID}</p>
         </div>
       </footer>
     </div>
