@@ -1,0 +1,23 @@
+name: CI with docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker-build-push:
+    runs-on: ubuntu-latest
+    outputs:
+      deployment_guid: ${{ steps.guid.outputs.deployment_guid }}
+
+    steps:
+      # 1️⃣ Checkout code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2️⃣ Generate Deployment GUID
+      - name: Generate GUID
+        id: guid
+        run: echo "deployment_guid=${{ github.run_number }}-${{ github.sha }}" >> $GITHUB_OUTPUT
+
