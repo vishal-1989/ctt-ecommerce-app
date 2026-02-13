@@ -33,13 +33,13 @@ jobs:
           docker build \
             --build-arg DEPLOYMENT_GUID=${{ steps.guid.outputs.deployment_guid }} \
             -f app/Dockerfile \
-            -t ${{ secrets.DOCKERHUB_USERNAME }}/{{ secrets.DOCKERHUB_REPO }}:${{ steps.guid.outputs.deployment_guid }} \
-            -t ${{ secrets.DOCKERHUB_USERNAME }}/{{ secrets.DOCKERHUB_REPO }}:latest .
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:${{ steps.guid.outputs.deployment_guid }} \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:latest .
         # 5️⃣ Push Docker Image
       - name: Push Image
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/{{ secrets.DOCKERHUB_REPO }}:${{ steps.guid.outputs.deployment_guid }}
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/{{ secrets.DOCKERHUB_REPO }}:latest .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:${{ steps.guid.outputs.deployment_guid }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:latest .
 
   # 6️⃣ Deploy to Render using IMAGE:GUID
   #- name: Deploy to Render
